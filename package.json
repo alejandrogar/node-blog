@@ -1,0 +1,30 @@
+{
+  "name": "node-blog",
+  "version": "1.0.0",
+  "description": "Simple blog using MEAN",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandrogar/node-blog.git"
+  },
+  "author": "alejandrogar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alejandrogar/node-blog/issues"
+  },
+  "homepage": "https://github.com/alejandrogar/node-blog#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "connect-redis": "^3.3.0",
+    "express": "^4.15.3",
+    "express-formidable": "^1.0.0",
+    "express-session": "^1.15.4",
+    "jsonwebtoken": "^7.4.1",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.3",
+    "rsvp": "^4.0.1"
+  }
+}

@@ -1,0 +1,28 @@
+<div ng-include="'/views/nav.tpl.html'"></div>
+
+
+<div class="container block-container">
+	<div class="row">
+		<div ng-repeat="article in articles" class="col s12 m4 l4 item-simple-grid {{article.category}}">
+			<a href="#">
+			<img src="http://devexweb.com//material_concept/images/articles/article_5.jpg" alt="" class="responsive-img">
+			<p class="font-medium truncate font-300 grey-text text-darken-3">{{article.title}}</p>
+			</a>
+			<div class="links"><a href="view_article.html">
+				</a><a href="#!" class="left">
+					<i class="material-icons left">person</i>
+					<div class="left">{{article.author.name}}</div>
+				</a>
+				<a href="#!" class="left">
+					<i class="material-icons left grey-text">access_time</i>
+					<div class="left grey-text">{{article.date}}</div>
+				</a>
+			</div>
+			<br>
+			<br>
+			<p class="pre-content truncate">
+				{{article.content}}
+			</p>
+		</div>
+	</div>
+</div>
