@@ -6,5 +6,6 @@ var app = angular.module('nodeBlog', [
 	'AppRoutes', 
 	'postService', 
 	'authService',
-	'categoryService'
+	'categoryService',
+	'ngAnimate'
 ]);

@@ -1,4 +1,69 @@
-<main class="container">
-	<h3>Nuevo post</h3>
-  	<textarea>Next, get a free TinyMCE Cloud API key!</textarea>
+<nav class="indigo">
+	<div class="nav-wrapper">
+		<a href="#" class="brand-logo">Add post</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a href="#" ng-click="savePost()">Save</a></li>
+		</ul>
+	</div>
+</nav>
+<div class="header-large indigo">
+</div>		
+<main class="container card-panel container-editor">
+	<div class="row">
+		<div class="col m6">
+			<div class="input-field">
+				<label for="title">Title</label>
+				<input id="title" type="text" ng-model="title"/>
+			</div>
+		</div>
+		<div class="col m6">
+			<div class="input-field">
+				<label for="description">Short description</label>
+				<input id="description" type="text" ng-model="description"/>
+			</div>
+		</div>	
+		<div class="col m6 s12">
+			<div class="input-field">
+				<label for="image">Image</label>
+				<input id="image" type="file" file-model="image"/>
+			</div>
+		</div>	
+		<div class="col m6">
+			<div class="input-field">
+				<select name="category" id="category" ng-model="category" class="browser-default">
+					<option value="select_cat">
+						Selecciona una categoria
+					</option>
+					<option ng-repeat="category in categories" value="{{category._id}}">
+						{{category.name}}
+					</option>
+				</select>
+			</div>
+		</div>
+	</div>
+  	<textarea></textarea>
 </main>
+
+<script>
+		tinymce.init({
+			selector: "textarea",
+			height: 500,
+			plugins: [
+			"advlist autolink autosave link image lists charmap print preview hr anchor pagebreak",
+			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+			"table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
+			],
+			toolbar1: "newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+			toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
+			toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+			content_css: [
+			'//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+			'//www.tinymce.com/css/codepen.min.css'],
+
+			menubar: false,
+			toolbar_items_size: 'small',
+			paste_data_images: true
+		});
+		//tinymce.activeEditor.getContent();
+		tinymce.translate({formats: "Formatos"});
+	</script>

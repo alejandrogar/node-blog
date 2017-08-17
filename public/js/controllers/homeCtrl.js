@@ -11,7 +11,17 @@ app.controller('homeCtrl', function($scope, $http, $q, Post, Auth, Category) {
 	$q.all([Category.get(), Post.get()]).then(function(result){
 		$scope.categories = result[0].data.categories;
 		$scope.articles = result[1].data.posts;
-		console.log($scope.articles);
 	});
+
+	//handling click to filter articles by data-filter attr
+	$scope.selectedClass = "all-ategories";
+	$scope.filterArticles = function(event){
+		$scope.selectedClass = event.delegateTarget.attributes[2].nodeValue;
+	}
+	if(typeof(localStorage.token) != "undefined"){
+		$scope.admin = true;
+	}else{
+		$scope.admin = false;
+	}
 
 });

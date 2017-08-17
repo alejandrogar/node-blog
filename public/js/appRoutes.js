@@ -8,11 +8,20 @@ angular.module('AppRoutes', ['ngRoute'])
     .when("/login", {
         templateUrl : "./views/login.tpl.html",
         controller: "loginCtrl"
-    })/*
-    .when("/add-post", {
-        templateUrl : "add_post.tpl.html",
-        controller: "addPostCtrl"
     })
+    .when("/add-post", {
+        templateUrl : "./views/add_post.tpl.html",
+        controller: "addPostCtrl",
+        resolve:{
+            "check":function($location){  
+                if(typeof(localStorage.token) != "undefined" ){ 
+                    //Do something
+                }else{
+                    $location.path('/');
+                }
+            }
+        }
+    })/*
     .when("/posts/:postID", {
         templateUrl : "post_detail.tpl.html",
         controller: "postDetailCtrl"

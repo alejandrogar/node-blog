@@ -1,3 +1,26 @@
-<div>
-	<h3>{{login}}</h3>
+<div class="container">
+	<div class="card-panel login-card">
+		<h5 class="indigo-text">Login</h5>
+		<div class="col s12">
+			<div class="input-field">
+				<label for="email">Email</label>
+				<input id="email" type="email" class="validate" ng-model="email">
+			</div>		
+		</div>
+		<div class="col s12">
+			<div class="input-field">
+				<label for="password">Password</label>
+				<input id="password" type="password" class="validate" ng-model="password">
+			</div>
+		</div>
+		<div class="col s12">
+			<a id="login" href="#" class="btn indigo waves-effect waves-light" ng-click="login();">Login</a>
+		</div>
+		<br>
+		<div class="col s12">
+			<a id="signup" href="#" class="btn btn-flat indigo-text grey lighten-3 waves-effect">Create account</a>
+			<br>
+			<a href="#" class="indigo-text">forgot password?</a>
+		</div>				
+	</div>
 </div>

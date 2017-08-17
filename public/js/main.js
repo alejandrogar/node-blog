@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  
   	$('.dropdown-button').dropdown({
       inDuration: 300,
       outDuration: 225,
@@ -9,4 +10,6 @@ $(document).ready(function() {
       alignment: 'left', // Displays dropdown with edge aligned to the left of button
       stopPropagation: false // Stops event propagation
     });    
+    $('.tooltipped').tooltip({delay: 50});
+
 });

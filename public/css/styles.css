@@ -1,10 +1,12 @@
 /*
-
-	Node Blog custom styles 
-
+	Node Blog custom styles
 */
-
+@import 'https://fonts.googleapis.com/css?family=Roboto+Mono';
+#navigation:not(.material-icons), #navigation-admin:not(.material-icons), blockquote{
+    font-family: 'Roboto Mono', monospace !important;
+}
 .block-container{margin-top: 120px;}
+
 .cke_reset_all, .cke_reset_all *, .cke_reset_all a, .cke_reset_all textarea{
 	font-family: "Roboto", sans-serif !important;
 }
@@ -77,8 +79,36 @@ input.mce-textbox:focus{
 	-webkit-box-shadow: 0 1px 0 0 #26a69a !important;
 	box-shadow: 0 1px 0 0 #26a69a !important;
 }
-.grid-item { width: 200px; }
-.grid-item--width2 { width: 400px; }
+.article.ng-hide{
+    opacity: 0;
+}
+.article{
+    transition: all ease-in-out 0.1s;
+}
+
+.login-card{
+    width:  350px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.signup-card{
+    width:  350px;
+    margin: 0 auto;
+    margin-top: 100px;  
+}
+.login-card .btn , .signup-card .btn{
+    width: 100%;
+}
+
+.header-large{
+    height: 120px;
+}
+
+.container-editor{
+    margin: 0 auto;
+    margin-top: -50px;
+}
+
 
 @media only screen and (min-width: 993px){
 	.header-container, .categories-container {

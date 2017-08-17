@@ -1,28 +1,33 @@
+
 <div ng-include="'/views/nav.tpl.html'"></div>
 
+<div ng-include="'/views/admin_menu.tpl.html'" ng-show="admin"></div>
 
 <div class="container block-container">
-	<div class="row">
-		<div ng-repeat="article in articles" class="col s12 m4 l4 item-simple-grid {{article.category}}">
+
+	<div id="articles" class="row">
+		<div ng-repeat="article in articles" class="col s12 m4 l4 article" ng-hide="article.category.name != selectedClass && selectedClass != 'all-ategories'">
 			<a href="#">
-			<img src="http://devexweb.com//material_concept/images/articles/article_5.jpg" alt="" class="responsive-img">
-			<p class="font-medium truncate font-300 grey-text text-darken-3">{{article.title}}</p>
+				<img src="http://devexweb.com//material_concept/images/articles/article_5.jpg" alt="" class="responsive-img">
+				<p class="font-medium truncate font-300 grey-text text-darken-3">{{article.title}}</p>
 			</a>
 			<div class="links"><a href="view_article.html">
-				</a><a href="#!" class="left">
-					<i class="material-icons left">person</i>
-					<div class="left">{{article.author.name}}</div>
+				</a><a href="#" class="left">
+					<i class="material-icons left grey-text text-darken-1">person</i>
+					<div class="left grey-text text-darken-1">{{article.author.name}}</div>
 				</a>
-				<a href="#!" class="left">
-					<i class="material-icons left grey-text">access_time</i>
-					<div class="left grey-text">{{article.date}}</div>
+				<a href="#" class="left">
+					<i class="material-icons left grey-text text-darken-1">access_time</i>
+					<div class="left grey-text text-darken-1">{{article.date}}</div>
 				</a>
 			</div>
 			<br>
 			<br>
-			<p class="pre-content truncate">
-				{{article.content}}
+			<p class="pre-content">
+				{{article.description}}
 			</p>
 		</div>
 	</div>
 </div>
+<div ng-include="'/views/footer.tpl.html'"></div>
+

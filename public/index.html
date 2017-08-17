@@ -5,11 +5,12 @@
 	<title>Node Blog</title>
 
 	<base href="/">
-	<!-- Material Design Icons -->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 	<!-- Materialize CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
+
+
+	<!-- Material Design Icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<!-- JQuery -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -19,12 +20,14 @@
 
 	<!-- Angular JS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
 
 	<!-- Ng Route JS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.js"></script>
 
 	<!-- Main styles -->
 	<link rel="stylesheet" href="css/styles.css">
+
 
 	<script type="text/javascript" src="js/services/postService.js"></script>
 	<script type="text/javascript" src="js/services/authService.js"></script>
@@ -34,63 +37,14 @@
 	<script type="text/javascript" src="js/appRoutes.js"></script>
 	<script type="text/javascript" src="js/controllers/homeCtrl.js"></script>
 	<script type="text/javascript" src="js/controllers/loginCtrl.js"></script>
+	<script type="text/javascript" src="js/controllers/addPostCtrl.js"></script>
 
+	<script type="text/javascript" src="js/directives/fileModel.js"></script>
 
-
-	<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=doz0j309ydcjlw7igzpjfuaquxiww7wrl2aw6va0tcj53d54"></script>
-	<script>
-		tinymce.init({
-			selector: "textarea",
-			height: 500,
-			plugins: [
-			"advlist autolink autosave link image lists charmap print preview hr anchor pagebreak",
-			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-			"table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
-			],
-			toolbar1: "newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
-			toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
-			toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | visualchars visualblocks nonbreaking template pagebreak restoredraft",
-			content_css: [
-			'//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-			'//www.tinymce.com/css/codepen.min.css'],
-
-			menubar: false,
-			toolbar_items_size: 'small',
-			paste_data_images: true
-		});
-		//tinymce.activeEditor.getContent();
-		tinymce.translate({formats: "Formatos"});
-	</script>
+	<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=doz0j309ydcjlw7igzpjfuaquxiww7wrl2aw6va0tcj53d54"></script>	
 </head>
-<body ng-app="nodeBlog">
+<body ng-app="nodeBlog" class="grey lighten-3">
 	<div ng-view></div>
-
-	<footer class="page-footer grey darken-3">
-		<div class="container">
-			<div class="row">
-				<div class="col l6 s12">
-					<h5 class="white-text">Footer Content</h5>
-					<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-				</div>
-				<div class="col l4 offset-l2 s12">
-					<h5 class="white-text">Links</h5>
-					<ul>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-						<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="footer-copyright">
-			<div class="container">
-				© 2017 Copyright Text
-				<a class="grey-text text-lighten-4 right" href="#!">Acceder</a>
-			</div>
-		</div>
-	</footer>
 	<script type="text/javascript" src="js/main.js"></script>
-	
 </body>
 </html>
