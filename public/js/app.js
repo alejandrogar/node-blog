@@ -7,5 +7,6 @@ var app = angular.module('nodeBlog', [
 	'postService', 
 	'authService',
 	'categoryService',
-	'ngAnimate'
+	'ngAnimate',
+	'ngSanitize'
 ]);

@@ -21,6 +21,19 @@ angular.module('AppRoutes', ['ngRoute'])
                 }
             }
         }
+    })
+    .when("/post/:id", {
+        templateUrl : "./views/view_post.tpl.html",
+        controller: "addPostCtrl",
+        resolve:{
+            "check":function($location){  
+                if(typeof(localStorage.token) != "undefined" ){ 
+                    //Do something
+                }else{
+                    $location.path('/');
+                }
+            }
+        }
     })/*
     .when("/posts/:postID", {
         templateUrl : "post_detail.tpl.html",

@@ -1,5 +1,5 @@
 var JWT    	= require('jsonwebtoken');
-var config 		= require("../config/config.js");
+var config 	= require("../config/config.js");
 
 module.exports = function(req, res, next){
 	
@@ -9,7 +9,7 @@ module.exports = function(req, res, next){
 	if(token){
 
 		// verifies secret and checls exp
-		JWT.verify(token, config.secret, function(err, decoded){ 
+		JWT.verify(token, config.secret, function(err, decoded){
 			if (err) {
 				return res.json({ success: false, message: 'Falló la autenticación del token' });    
 			} else {
@@ -21,7 +21,6 @@ module.exports = function(req, res, next){
 		});
 
 	}else{
-
 		// if there is no token
 		// return an error
 		return res.status(400).send({

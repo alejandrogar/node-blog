@@ -1,26 +1,21 @@
-var express 		= require("express");
-var mongoose 		= require("mongoose");
-var fileUpload      = require('express-fileupload');
-var router 			= require("./config/routes.js");
-var config 			= require("./config/config.js");
-var methodOverride 	= require("method-override");
-var bodyParser 		= require('body-parser');
-var bytes 			= require('bytes');
-var app 			= express();
+var express 		= require("express"),
+	mongoose 		= require("mongoose"),
+	fileUpload      = require('express-fileupload'),
+	router 			= require("./config/routes.js"),
+	config 			= require("./config/config.js"),
+	formidable      = require('express-formidable'),
+	bodyParser 		= require('body-parser'),
+	bytes 			= require('bytes'),
+	app 			= express();
 
-app.use(express.static('public'));
-app.use(methodOverride('X-HTTP-Method-Override'));
 
-app.use(bodyParser.json({limit: '50mb'}) );
+app.use(bodyParser.json({limit: '50MB'}));
 app.use(bodyParser.urlencoded({
-  limit: '50mb',
+  limit: '50MB',
   extended: true,
   parameterLimit:50000
 }));
-
-app.use(fileUpload({
-  limits: { fileSize: 50 * 1024 * 1024 },
-}));
+app.use(express.static('public'));
 
 app.use('/api', router);
 

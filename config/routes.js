@@ -1,17 +1,20 @@
-var express 	= require("express");
-var router 		= express.Router();
+var express 	= require("express"),
+ 	router 		= express.Router(),
+	formidable  = require('express-formidable'),
+	fs 			= require('fs'),
 
-/****  Models  ***/
-var User 		= require("../models/user").User;
-var Post 		= require("../models/post").Post;
-var Category 	= require("../models/category").Category;
+	/****  Models  ***/
+	User 		= require("../models/user").User,
+	Post 		= require("../models/post").Post,
+	Category 	= require("../models/category").Category,
+	mongoose	= require("mongoose"),
 
-var Tag 		= require("../models/tag").Tag;
+	Tag 		= require("../models/tag").Tag,
 
-/****  Config  ***/
-var JWT    		= require('jsonwebtoken') // Json Web Token for authentication
-var config 		= require("../config/config.js");
-var verifyToken = require("../middlewares/verify_token.js"); // Middleware for validate token
+	/****  Config  ***/
+	JWT    		= require('jsonwebtoken'), // Json Web Token for authentication
+	config 		= require("../config/config.js"),
+	verifyToken = require("../middlewares/verify_token.js"); // Middleware for validate token
 
 /****  Api  routes  ***/
 
@@ -81,6 +84,38 @@ router.get("/posts",function(req, res,next){
    // return next();
 });
 
+
+router.get("/posts/:id",function(req, res,next){
+	
+	Post.findById(req.params.id)
+		.populate('author') // Get author object models/user.js
+		.populate('category')// get category object - models/category.js
+		.exec(function(err, posts){
+
+			if(!err){
+				return res.status(200).send({post:posts});
+			}else{
+				return  res.send({err:err});
+			}
+		});
+   // return next();
+});
+
+router.get("/posts-by-category/:category",function(req, res,next){
+
+	Post.find({category: new mongoose.Types.ObjectId(req.params.category)})
+		.sort({date:-1})
+		.limit(3)
+		.exec(function(err, posts){
+			if(!err){
+				return res.status(200).send({posts:posts});
+			}else{
+				return  res.send({err:err});
+			}
+		});
+   // return next();
+});
+
 router.use(verifyToken); // Setting the middleware
 
 router.route("/users")
@@ -108,8 +143,17 @@ router.post("/categories", function(req, res){
 		});
 	});
 
-router.post("/posts", function(req , res){
-	var post = new Post(req.body);
+
+router.post("/posts", formidable({keepExtensions:true, uploadDir:"./public/images/"}),function(req , res){
+
+	var post = new Post(req.fields);
+
+	var fileExtension = req.files.image.name.split(".").pop(),
+		fileName 	  = post._id+fileExtension;
+
+	fs.rename(req.files.image.path, "public/images/"+fileName);
+
+	post.image = fileName;
 
 	//Create Date object from model models/post.js
 	post.date = new Date();

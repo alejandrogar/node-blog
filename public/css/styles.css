@@ -17,6 +17,15 @@ nav .nav-header{
     clear: both;
     padding: 40px 0;
 }
+nav.detail .nav-header{
+    clear: both;
+    padding: 121px 0;
+}
+nav.detail{
+    background-size: cover !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+}
 .subtitle-header{
 	display: block;
     margin: -40px 0 40px 0;
@@ -50,6 +59,22 @@ nav ul:not(.indicators) li.active {
 .font-medium {
     font-size: 25px !important;
 }
+.font-large {
+    font-size: 35px !important;
+}
+p.title {
+    font-size: 33px;
+}
+p.title, p.subtitle {
+    font-family: "Roboto Mono","noto sans",arial,sans-serif;
+}
+.title, .subtitle {
+    margin-bottom: 40px;
+}
+.article-text {
+    line-height: 1.8;
+    font-size: 17px;
+}
 #editor {
   background: #FFF;
   padding: 2% 4%;
@@ -80,12 +105,13 @@ input.mce-textbox:focus{
 	box-shadow: 0 1px 0 0 #26a69a !important;
 }
 .article.ng-hide{
-    opacity: 0;
+    transform: scale(0);
 }
 .article{
-    transition: all ease-in-out 0.1s;
+    height: 500px;
+    transform: scale(1);
+    transition: all ease-in-out 0.2s;
 }
-
 .login-card{
     width:  350px;
     margin: 0 auto;
@@ -103,10 +129,15 @@ input.mce-textbox:focus{
 .header-large{
     height: 120px;
 }
-
 .container-editor{
     margin: 0 auto;
     margin-top: -50px;
+}
+.btn-share-article{
+    position: absolute;
+    right: 0px;
+    margin-right: 100px;
+    margin-top: -32px;    
 }
 
 

@@ -7,8 +7,8 @@
 
 	<div id="articles" class="row">
 		<div ng-repeat="article in articles" class="col s12 m4 l4 article" ng-hide="article.category.name != selectedClass && selectedClass != 'all-ategories'">
-			<a href="#">
-				<img src="http://devexweb.com//material_concept/images/articles/article_5.jpg" alt="" class="responsive-img">
+			<a href="/post/{{article._id}}">
+				<img src="/images/{{article.image}}" alt="" class="responsive-img">
 				<p class="font-medium truncate font-300 grey-text text-darken-3">{{article.title}}</p>
 			</a>
 			<div class="links"><a href="view_article.html">

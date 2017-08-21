@@ -12,19 +12,20 @@ app.controller('addPostCtrl', function($scope, $http, $q, Post, Auth, Category) 
 
 	$scope.savePost = function(){
 
-		console.log(tinymce.activeEditor.getContent());
-
-		console.log($scope.image);
 		var dataPost = new FormData();
        	dataPost.append('title', $scope.title);
        	dataPost.append('description', $scope.description);
+       	dataPost.append('image', $scope.image);
        	dataPost.append('content', tinymce.activeEditor.getContent());
        	dataPost.append('category', $scope.category);
-       	dataPost.append('image', $scope.image);
-		console.log(dataPost);
+
+		console.log($scope.image);
 
 		Post.post(dataPost, function(response){
 			console.log(response);
+			if(response){
+				
+			}
 		});
 	}
 });

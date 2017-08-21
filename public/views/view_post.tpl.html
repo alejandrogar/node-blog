@@ -1,0 +1,43 @@
+<nav id="navigation" class="nav-extended lighten-1 detail" style="background: url('/images/{{article.image}}')">
+	<div class="nav-wrapper header-container">
+		<a href="https://github.com/alejandrogar" class="brand-logo">
+		<svg width="30" height="30" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" fill="#fff" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+		Alejandrogar</a>
+		<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+		<ul class="right hide-on-med-and-down">
+			<li><a href="#">Lorem</a></li>
+			<li><a href="#">Ipsum</a></li>
+			<li class="active"><a href="#">Blog</a></li>
+			<li><a href="/login">Login</a></li>
+			<li>
+				<a class="dropdown-button" href="#" data-activates="feature-dropdown" data-beloworigin="true" data-constrainwidth="false">Sit
+					<i class="material-icons right">arrow_drop_down</i>
+				</a>
+				<ul id="feature-dropdown" class="dropdown-content">
+					<li><a href="/pages/full-header">Amet</a></li>
+					<li><a href="/pages/horizontal">Consectetur</a></li>
+					<li><a href="/pages/no-image">Adipsicing</a></li>
+				</ul>
+			</li>
+		</ul>
+		<!-- Dropdown Structure -->
+		<div class="nav-header center">
+			<h2>{{article.title}}</h2>
+		</div>
+	</div>
+</nav>
+
+<a href="#!" class="btn btn-floating btn-large btn-share-article waves-effect grey lighten-3"><i class="material-icons grey-text text-darken-2">share</i></a>
+<main class="container">
+	<div ng-bind-html="article.content"></div>
+
+
+	<div class="row">
+			<div class="col m6 s12">
+				<p class="font-large font-300">Related posts</p>
+				<a ng-repeat="related in relatedPosts"   href="/post/{{related._id}}">
+					<img src="/images/{{related.image}}" alt="" class="responsive-img"  width="90">
+				</a>
+			</div>
+		</div>
+</main>

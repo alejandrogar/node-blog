@@ -16,6 +16,10 @@ var post_schema = new Schema({
 		type:String,
 		required: [true, errorMessages.fieldReq]
 	},
+	image: {
+		type:String,
+		required: [true, errorMessages.fieldReq]
+	},	
 	date:{
 		type:Date,
 		required: [true, errorMessages.fieldReq]
