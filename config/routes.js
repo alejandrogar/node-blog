@@ -139,7 +139,7 @@ router.post("/categories", function(req, res){
 		
 		//Save category created
 		cat.save().then(function(user){
-			return res.send({ success: true });
+			return res.send({ success: true , category:cat});
 		}, function(err){
 			return res.send(err);
 		});
