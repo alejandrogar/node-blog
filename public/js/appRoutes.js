@@ -13,11 +13,11 @@ angular.module('AppRoutes', ['ngRoute'])
         templateUrl : "./views/add_post.tpl.html",
         controller: "addPostCtrl",
         resolve:{
-            "check":function($location){  
-                if(typeof(localStorage.token) != "undefined" ){ 
+            "check":function($location){ 
+                if(typeof(localStorage.token) != "undefined" && localStorage.token != "no-token-saved"){ 
                     //Do something
                 }else{
-                    $location.path('/');
+                    $location.path('/login');
                 }
             }
         }

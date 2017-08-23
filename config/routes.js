@@ -21,19 +21,20 @@ var express 	= require("express"),
 router.post("/authenticate", function(req, res){
 
 	//Find user by credentials
+	console.log(req.body);
 	User.findOne(req.body, function(err, user){
 
 		if (err) {
-			return res.send(err);
+			return res.json(err);
 		}
 
-		if(!user){
-			return res.send({ success: false, message: 'Autenticación fallida. No se encontró el usuario.' });
+		if(user == null){
+			return res.json({ success: false, message: 'Autenticación fallida. No se encontró el usuario.' });
 		}else if (user){
 
 			//Check if password matches
 			if(user.password != req.body.password){
-				return res.send({ success: false, message: 'Autenticación fallida. Contraseña incorrecta' });
+				return res.json({ success: false, message: 'Autenticación fallida. Contraseña incorrecta' });
 			}else{
 				// if user is found and password right
 				// create token
@@ -42,6 +43,8 @@ router.post("/authenticate", function(req, res){
 		        });
 
 		        res.locals.user = user;
+		        console.log(user);
+
 				// Return the token
 				user.password = null; 
 				return res.json({
@@ -84,7 +87,6 @@ router.get("/posts",function(req, res,next){
    // return next();
 });
 
-
 router.get("/posts/:id",function(req, res,next){
 	
 	Post.findById(req.params.id)
@@ -116,8 +118,6 @@ router.get("/posts-by-category/:category",function(req, res,next){
    // return next();
 });
 
-router.use(verifyToken); // Setting the middleware
-
 router.route("/users")
 	.post(function(req , res){
 		
@@ -130,6 +130,8 @@ router.route("/users")
 			return res.send(err);
 		});
 	});
+
+router.use(verifyToken); // Setting the middleware
 
 router.post("/categories", function(req, res){
 		

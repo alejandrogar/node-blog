@@ -16,11 +16,29 @@ angular.module('authService', []).factory('Auth', ['$http', function($http) {
                 if(response.data.success){
                     localStorage.setItem("token", response.data.token);
                     success(response);
+                }else{
+                    Materialize.toast("Error", 4000, "red"); // 4000 is the duration of the toast
                 }
             }, function errorCallback(response) {
                 error(response);
             });
         },
+        createAccount : function(userData, success, error) {
+            return $http({
+                method: 'POST',
+                url: '/api/users/',
+                data: userData,
+            }).then(function successCallback(response) {
+                if(response.data.success){
+                    localStorage.setItem("token", response.data.token);
+                    success(response);
+                }else{
+                    Materialize.toast("Error", 4000, "red"); // 4000 is the duration of the toast
+                }
+            }, function errorCallback(response) {
+                error(response);
+            });
+        },        
     }       
 
 }]);

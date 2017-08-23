@@ -7,6 +7,19 @@
 				<input id="email" type="email" class="validate" ng-model="email">
 			</div>		
 		</div>
+		<div class="col s12" ng-show="create">
+			<div class="input-field">
+				<label for="name">Name</label>
+				<input id="name" type="text" class="validate" ng-model="name">
+			</div>		
+		</div>
+
+		<div class="col s12" ng-show="create">
+			<div class="input-field">
+				<label for="user">User name</label>
+				<input id="user" type="text" class="validate" ng-model="user">
+			</div>		
+		</div>		
 		<div class="col s12">
 			<div class="input-field">
 				<label for="password">Password</label>
@@ -14,13 +27,11 @@
 			</div>
 		</div>
 		<div class="col s12">
-			<a id="login" href="#" class="btn indigo waves-effect waves-light" ng-click="login();">Login</a>
+			<a id="login" href="#" class="btn indigo waves-effect waves-light" ng-click="submit();">Submit</a>
 		</div>
 		<br>
 		<div class="col s12">
-			<a id="signup" href="#" class="btn btn-flat indigo-text grey lighten-3 waves-effect">Create account</a>
-			<br>
-			<a href="#" class="indigo-text">forgot password?</a>
+			<a id="signup" href="#" class="btn btn-flat indigo-text grey lighten-3 waves-effect" ng-click="create = !create" ng-bind="(!create)?'Create account':'Login'"></a>
 		</div>				
 	</div>
 </div>

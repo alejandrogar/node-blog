@@ -18,10 +18,13 @@ app.controller('homeCtrl', function($scope, $http, $q, Post, Auth, Category) {
 	$scope.filterArticles = function(event){
 		$scope.selectedClass = event.delegateTarget.attributes[2].nodeValue;
 	}
-	if(typeof(localStorage.token) != "undefined"){
+
+	if(typeof(localStorage.token) != "undefined" && localStorage.token != "no-token-saved"){
 		$scope.admin = true;
 	}else{
 		$scope.admin = false;
 	}
-
+	$scope.logOut = function(){
+		localStorage.token = "no-token-saved";
+	}
 });
